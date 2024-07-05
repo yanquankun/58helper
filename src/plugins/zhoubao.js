@@ -44,5 +44,7 @@ module.exports = exports = function () {
               }
             });
       }
+      // 重置
+      if (day.toString() !== weekday && !hasNoticed) hasNoticed = true;
     }, interval);
 };
