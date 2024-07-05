@@ -2,6 +2,7 @@
   "name": "58-helper",
   "displayName": "58helper",
   "description": "58 vscode 帮助插件",
+  "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
   "version": "0.0.1",
   "engines": {
@@ -41,7 +42,9 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "pnpm run lint",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/vscode": "^1.80.1",
