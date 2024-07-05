@@ -5,7 +5,7 @@ const openZhoubaoUrlTitle = { title: "打开周报填写地址" };
 
 module.exports = exports = function () {
   // 每0.5分钟检查一次
-  const interval = 3000;
+  const interval = 30000;
   // 已提示flag
   let hasNoticed = false;
 
@@ -13,8 +13,8 @@ module.exports = exports = function () {
   return () =>
     setInterval(() => {
       const config = vscode.workspace.getConfiguration("58helperConfig");
-      const weekday = config.get("weekday") || "5";
-      const zbtime = config.get("zbtime") || "11:00";
+      const weekday = config.get("weekday") || "4";
+      const zbtime = config.get("zbtime") || "18:00";
 
       const now = new Date().getTime();
       const day = dayjs().get("date");
@@ -24,7 +24,7 @@ module.exports = exports = function () {
       )}-${hour}-${day} ${zbtime}:00`;
       // 间隔0.5分钟内都算成功
       if (
-        day === weekday &&
+        day.toString() === weekday &&
         Math.abs(now - new Date(noticeTimestamp).getTime()) < 30 * 1000
       ) {
         !hasNoticed &&
