@@ -13,9 +13,7 @@
   ],
   "main": "./src/extension.js",
   "activationEvents": [
-    "onStartupFinished",
-    "onLanguage:javascript",
-    "onLanguage:typescript"
+    "onStartupFinished"
   ],
   "contributes": {
     "configuration": {
@@ -38,6 +36,10 @@
       {
         "command": "58-close-zb-notice",
         "title": "58helper周报关闭提醒"
+      },
+      {
+        "command": "58-vscode-restart",
+        "title": "58helper刷新vscode"
       }
     ]
   },
