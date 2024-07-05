@@ -22,7 +22,7 @@ module.exports = exports = function () {
       const noticeTimestamp = `${dayjs().get(
         "year"
       )}-${hour}-${day} ${zbtime}:00`;
-      // 间隔0.5分钟内都算成功
+      // 间隔3分钟内都算成功
       if (
         day.toString() === weekday &&
         Math.abs(now - new Date(noticeTimestamp).getTime()) < 180 * 1000
