@@ -4,7 +4,7 @@
   "description": "58 vscode 帮助插件",
   "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.80.1"
   },
@@ -13,7 +13,8 @@
   ],
   "main": "./src/extension.js",
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onLanguage:typescript"
   ],
   "contributes": {
     "configuration": {
@@ -22,12 +23,12 @@
       "properties": {
         "58helperConfig.weekday": {
           "type": "string",
-          "default": "5",
-          "description": "周报提醒触发weekday[1-5代表周一到周五]"
+          "default": "4",
+          "description": "周报提醒触发weekday[周日-周一为0-6]"
         },
         "58helperConfig.zbtime": {
           "type": "string",
-          "default": "16:00",
+          "default": "18:00",
           "description": "周报提醒触发时间，格式为HH:MM"
         }
       }
@@ -47,12 +48,15 @@
     "publish": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
-    "@types/vscode": "^1.80.1",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
+    "@types/vscode": "^1.80.1",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.11"
   }
 }
