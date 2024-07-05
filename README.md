@@ -25,3 +25,4 @@
 - 触发时机为启动 vscode 后
 - 增加刷新 vscode
   - 使用 shift+commond+P 打开输入框，输入 58，会出现刷新 vscode 选项
+- 增加检测安装后重启 vscode 功能

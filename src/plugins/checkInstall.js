@@ -17,10 +17,10 @@ module.exports = exports = async function (cb) {
           )
           .then((selection) => {
             if (selection === "reload") {
+              isInsall58Helper = true;
               cb();
             }
           });
-      isInsall58Helper = true;
     }
   }
 };
