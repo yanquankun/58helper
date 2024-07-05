@@ -5,6 +5,7 @@
   "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
   "version": "0.0.2",
+  "icon": "logo.svg",
   "engines": {
     "vscode": "^1.80.1"
   },
