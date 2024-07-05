@@ -25,7 +25,7 @@ module.exports = exports = function () {
       // 间隔0.5分钟内都算成功
       if (
         day.toString() === weekday &&
-        Math.abs(now - new Date(noticeTimestamp).getTime()) < 30 * 1000
+        Math.abs(now - new Date(noticeTimestamp).getTime()) < 180 * 1000
       ) {
         !hasNoticed &&
           vscode.window
