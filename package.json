@@ -1,0 +1,54 @@
+{
+  "name": "58-helper",
+  "displayName": "58helper",
+  "description": "58 vscode 帮助插件",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "58helper",
+      "properties": {
+        "58helperConfig.weekday": {
+          "type": "string",
+          "default": "5",
+          "description": "周报提醒触发weekday[1-5代表周一到周五]"
+        },
+        "58helperConfig.zbtime": {
+          "type": "string",
+          "default": "16:00",
+          "description": "周报提醒触发时间，格式为HH:MM"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "58-close-zb-notice",
+        "title": "58helper周报关闭提醒"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.91.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
