@@ -4,7 +4,7 @@
 功能可在版本迭代中进行参考  
 如有问题，可联系闫全堃[Mint]，tel：可在美事中查看  
 `vscode 最新版本要求为 1.80.1`
-`安装后请重启vscode后生效`
+`安装后请重启vscode或通过command+shift+p选中刷新vscode后生效`
 
 ## Release Notes
 
@@ -26,3 +26,12 @@
 - 增加刷新 vscode
   - 使用 shift+commond+P 打开输入框，输入 58，会出现刷新 vscode 选项
 - 增加检测安装后重启 vscode 功能
+
+### 0.0.3
+
+- fix 一些问题
+- 更新 58 周报提醒弹框开启机制
+  - 使用 shift+commond+P 打开输入框，输入 58，会出现打开周报提示，选中后将开启周报提醒
+- 删除 js 环境触发机制
+- 删除 vscode 启动触发机制
+- 删除检测安装后重启 vscode 功能

@@ -4,8 +4,8 @@
   "description": "58 vscode 帮助插件",
   "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
-  "version": "0.0.2",
-  "icon": "logo.svg",
+  "version": "0.0.3",
+  "icon": "",
   "engines": {
     "vscode": "^1.80.1"
   },
@@ -14,7 +14,8 @@
   ],
   "main": "./src/extension.js",
   "activationEvents": [
-    "onStartupFinished"
+    "onLanguage:typescript",
+    "onLanguage:javascript"
   ],
   "contributes": {
     "configuration": {
@@ -41,15 +42,20 @@
       {
         "command": "58-vscode-restart",
         "title": "58helper刷新vscode"
+      },
+      {
+        "command": "58-open-zb-notice",
+        "title": "58helper打开周报提醒"
       }
     ]
   },
   "scripts": {
     "lint": "eslint .",
-    "pretest": "pnpm run lint",
+    "pretest": "npm run lint",
     "test": "vscode-test",
-    "package": "pnpm vsce package --no-dependencies",
-    "publish": "pnpm vsce publish --no-dependencies"
+    "package-cp": "npm vsce package --no-dependencies",
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",
