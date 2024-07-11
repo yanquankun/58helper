@@ -5,7 +5,7 @@
   "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
   "version": "0.0.3",
-  "icon": "",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.80.1"
   },
@@ -31,6 +31,11 @@
           "type": "string",
           "default": "18:00",
           "description": "周报提醒触发时间，格式为HH:MM"
+        },
+        "58helperConfig.zbpath": {
+          "type": "string",
+          "default": "https://docs.58corp.com/#/space/1542752213913358336",
+          "description": "周报地址"
         }
       }
     },

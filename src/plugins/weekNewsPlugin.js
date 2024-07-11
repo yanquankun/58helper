@@ -15,10 +15,10 @@ module.exports = exports = function () {
       "已打开周报提醒，相关配置可在设置-扩展tab-58helper中修改"
     );
     return setInterval(() => {
-      console.log(1111);
       const config = vscode.workspace.getConfiguration("58helperConfig");
       const weekday = config.get("weekday") || "4";
       const zbtime = config.get("zbtime") || "18:00";
+      const zbpath = config.get("zbpath");
 
       const now = new Date().getTime();
       const month = dayjs().get("month") + 1;
@@ -42,11 +42,7 @@ module.exports = exports = function () {
           )
           .then((selection) => {
             if (selection === openZhoubaoUrlTitle) {
-              vscode.env.openExternal(
-                vscode.Uri.parse(
-                  "https://docs.58corp.com/#/space/1542752213913358336"
-                )
-              );
+              vscode.env.openExternal(vscode.Uri.parse(zbpath));
             }
           });
       }

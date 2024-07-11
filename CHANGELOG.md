@@ -30,6 +30,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### 0.0.3
 
 - fix 一些问题
+- 增加周报地址设置选项，必填，设置位置和周报日期一致
 - 更新 58 周报提醒弹框开启机制
   - 使用 shift+commond+P 打开输入框，输入 58，会出现打开周报提示，选中后将开启周报提醒
 - 删除 js 环境触发机制
