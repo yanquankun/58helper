@@ -1,12 +1,20 @@
-const vscode = require("vscode");
+import { ChatViewProvider } from "./views/gptView";
+import * as vscode from "vscode";
 const weekNewsHook = require("./commands/weekNewsCommand");
 const restartHook = require("./commands/restartCommand");
 
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+function activate(context: vscode.ExtensionContext) {
   console.log("58-helper插件打开");
+
+  context.subscriptions.push(
+    vscode.window.registerWebviewViewProvider(
+      "GPT.GPTV",
+      new ChatViewProvider(context)
+    )
+  );
 
   // 周报关闭提醒注册
   const closeZbNotice = weekNewsHook.closeZbNotice;

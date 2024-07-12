@@ -5,19 +5,44 @@
   "repository": "https://github.com/yanquankun/58helper",
   "publisher": "yanquankun",
   "version": "0.0.3",
-  "icon": "logo.png",
+  "icon": "icon/logo.png",
   "engines": {
     "vscode": "^1.80.1"
   },
   "categories": [
     "Other"
   ],
-  "main": "./src/extension.js",
+  "main": "./out/extension.js",
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:javascript"
   ],
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "GPT",
+          "title": "58-chatgpt",
+          "icon": "icon/dep.svg"
+        }
+      ]
+    },
+    "views": {
+      "GPT": [
+        {
+          "id": "GPTV",
+          "name": "58-gpt",
+          "contextualTitle": "58-chatgpt by YanQK",
+          "type": "webview"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "GPT.GPTV",
+        "contents": "[打开chatGPT对话框](command:58-vscode-restart)"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "58helper",
@@ -58,7 +83,8 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test",
-    "package-cp": "npm vsce package --no-dependencies",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
     "package": "npx vsce package",
     "publish": "npx vsce publish"
   },
@@ -69,7 +95,8 @@
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "axios": "^0.21.1"
   },
   "dependencies": {
     "dayjs": "^1.11.11"
