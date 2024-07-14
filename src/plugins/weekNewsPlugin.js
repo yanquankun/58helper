@@ -1,11 +1,11 @@
-const vscode = require("vscode");
-const dayjs = require("dayjs");
+import * as vscode from "vscode";
+import dayjs from "dayjs";
 
 const openZhoubaoUrlTitle = { title: "打开周报填写地址" };
 
-module.exports = exports = function () {
+export default () => {
   // 每0.5分钟检查一次
-  const interval = 3000;
+  const interval = 30000;
   // 已提示flag
   let hasNoticed = false;
 

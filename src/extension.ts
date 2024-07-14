@@ -1,7 +1,7 @@
 import { ChatViewProvider } from "./views/gptView";
 import * as vscode from "vscode";
-const weekNewsHook = require("./commands/weekNewsCommand");
-const restartHook = require("./commands/restartCommand");
+import * as weekNewsHook from "./commands/weekNewsCommand";
+import * as restartHook from "./commands/restartCommand";
 
 /**
  * @param {vscode.ExtensionContext} context
