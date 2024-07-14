@@ -5,7 +5,7 @@ const openZhoubaoUrlTitle = { title: "打开周报填写地址" };
 
 module.exports = exports = function () {
   // 每0.5分钟检查一次
-  const interval = 30000;
+  const interval = 3000;
   // 已提示flag
   let hasNoticed = false;
 
@@ -27,6 +27,17 @@ module.exports = exports = function () {
       const noticeTimestamp = `${dayjs().get(
         "year"
       )}-${month}-${day} ${zbtime}:00`;
+
+      vscode.window
+        .showWarningMessage(
+          "周报填写提醒!不填请全组喝娃哈哈啦~",
+          openZhoubaoUrlTitle
+        )
+        .then((selection) => {
+          if (selection === openZhoubaoUrlTitle) {
+            vscode.env.openExternal(vscode.Uri.parse(zbpath));
+          }
+        });
 
       // 间隔3分钟内都算成功
       if (

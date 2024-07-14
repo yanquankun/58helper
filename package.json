@@ -13,10 +13,7 @@
     "Other"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:typescript",
-    "onLanguage:javascript"
-  ],
+  "activationEvents": [],
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -30,7 +27,7 @@
     "views": {
       "GPT": [
         {
-          "id": "GPTV",
+          "id": "GPT.GPTV",
           "name": "58-gpt",
           "contextualTitle": "58-chatgpt by YanQK",
           "type": "webview"
@@ -94,11 +91,12 @@
     "@types/vscode": "^1.80.1",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
+    "axios": "^0.21.1",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "axios": "^0.21.1"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
-    "dayjs": "^1.11.11"
+    "dayjs": "^1.11.11",
+    "vsce": "^2.15.0"
   }
 }

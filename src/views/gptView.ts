@@ -15,7 +15,6 @@ export class ChatViewProvider implements vscode.WebviewViewProvider {
     context: vscode.WebviewViewResolveContext,
     _token: vscode.CancellationToken
   ) {
-    console.log(webviewView);
     this._view = webviewView;
 
     webviewView.webview.options = {

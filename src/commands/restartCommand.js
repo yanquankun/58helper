@@ -7,7 +7,8 @@ function refreshVSCode() {
 
 module.exports = exports = {
   // reload vscodce plugin
-  registerRestart: vscode.commands.registerCommand("58-vscode-restart", () => {
-    refreshVSCode();
-  }),
+  registerRestart: () =>
+    vscode.commands.registerCommand("58-vscode-restart", () => {
+      refreshVSCode();
+    }),
 };
