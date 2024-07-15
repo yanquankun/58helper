@@ -1,7 +1,7 @@
 import zhoubao from "../plugins/weekNewsPlugin";
 import * as vscode from "vscode";
 
-let zbtimerId = null;
+let zbtimerId: NodeJS.Timeout | null = null;
 const zbtimer = zhoubao();
 
 // 周报关闭提醒注册

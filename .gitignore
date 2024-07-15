@@ -2,3 +2,5 @@ node_modules
 .vscode-test/
 *.vsix
 out
+web/node_modules
+dist
