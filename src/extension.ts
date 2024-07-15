@@ -1,7 +1,7 @@
-import { ChatViewProvider } from "./views/gptView";
 import * as vscode from "vscode";
 import * as weekNewsHook from "./commands/weekNewsCommand";
 import * as restartHook from "./commands/restartCommand";
+import * as webviewHook from "./commands/webviewCommand";
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -11,12 +11,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   vscode.window.showWarningMessage("58-helper插件打开", "reload");
 
-  // context.subscriptions.push(
-  //   vscode.window.registerWebviewViewProvider(
-  //     "GPT.GPTV",
-  //     new ChatViewProvider(context)
-  //   )
-  // );
+  // gptview注册
+  const gptView = webviewHook.registerGptView(context);
+
+  // 基建库view注册
+  const libraryView = webviewHook.registerLibraryCommandAndView();
 
   // 周报关闭提醒注册
   const closeZbNotice = weekNewsHook.closeZbNotice();
@@ -27,7 +26,13 @@ export function activate(context: vscode.ExtensionContext) {
   // 重启注册
   const registerRestart = restartHook.registerRestart();
 
-  context.subscriptions.push(closeZbNotice, openZbNotice, registerRestart);
+  context.subscriptions.push(
+    gptView,
+    libraryView,
+    closeZbNotice,
+    openZbNotice,
+    registerRestart
+  );
 }
 
 export function deactivate() {

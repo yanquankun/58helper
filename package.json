@@ -41,12 +41,6 @@
         }
       ]
     },
-    "viewsWelcome": [
-      {
-        "view": "GPT.GPTV",
-        "contents": "[打开chatGPT对话框](command:58-vscode-restart)"
-      }
-    ],
     "configuration": {
       "type": "object",
       "title": "58helper",
@@ -71,15 +65,23 @@
     "commands": [
       {
         "command": "58-close-zb-notice",
-        "title": "58helper周报关闭提醒"
+        "title": "58helper周报关闭提醒",
+        "category": "周报提醒"
       },
       {
         "command": "58-vscode-restart",
-        "title": "58helper刷新vscode"
+        "title": "58helper刷新vscode",
+        "category": "常用功能"
       },
       {
         "command": "58-open-zb-notice",
-        "title": "58helper打开周报提醒"
+        "title": "58helper打开周报提醒",
+        "category": "周报提醒"
+      },
+      {
+        "command": "58-open-library",
+        "title": "58helper打开内部基建文档",
+        "category": "常用功能"
       }
     ]
   },

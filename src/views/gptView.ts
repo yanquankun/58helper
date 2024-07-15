@@ -1,6 +1,5 @@
-// import axios from "axios";
+import axios from "axios";
 import * as vscode from "vscode";
-const axios = require("axios");
 
 export class ChatViewProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = "GPT.GPTV";
@@ -70,20 +69,38 @@ export class ChatViewProvider implements vscode.WebviewViewProvider {
       </html>`;
   }
 
-  private async askChatGPT(question: string): Promise<string> {
+  private async askChatGPT(question: string): Promise<string | void> {
     try {
-      console.log("question", question, globalThis.fetch);
-      const response = await globalThis.fetch(
-        "https://api.openai.com/v1/engines/gpt-3.5-turbo/completions",
+      console.log("question", question);
+      const apiKey = "sk-proj-2gIO10Mlzd5Fcwo1U2EjT3BlbkFJe3OTG8CNQtHwqXsKC3CP";
+      const apiURLToText = "https://api.openai.com/v1/chat/completions";
+      const apiURLToImage = "https://api.openai.com/v1/images/generations";
+      const apiURLToEditImage = "https://api.openai.com/v1/images/edits";
+      const apiURLToVariationImage =
+        "https://api.openai.com/v1/images/variations";
+      const apiURLTotranscription =
+        "https://api.openai.com/v1/audio/transcriptions";
+
+      const response = await axios.post(
+        apiURLToText,
         {
-          method: "POST",
-          body: JSON.stringify({ prompt: question, max_tokens: 150 }),
+          max_tokens: 100,
+          n: 1,
+          model: "gpt-3.5-turbo",
+          messages: [
+            { role: "system", content: "Make 720 Great Again" },
+            { role: "user", content: `${question}` },
+          ],
+        },
+        {
           headers: {
-            Authorization: `Bearer sk-proj-2gIO10Mlzd5Fcwo1U2EjT3BlbkFJe3OTG8CNQtHwqXsKC3CP`,
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
           },
         }
       );
-      // const response = await axios(
+      console.log("response", response.data.choices);
+      // const response = await axios.post(
       //   "https://api.openai.com/v1/engines/gpt-3.5-turbo/completions",
       //   {
       //     prompt: question,
@@ -95,7 +112,7 @@ export class ChatViewProvider implements vscode.WebviewViewProvider {
       //     },
       //   }
       // );
-      return response.data.choices[0].text.trim();
+      // return response.data.choices[0].text.trim();
     } catch (error) {
       console.error(error);
       return "Error fetching response from ChatGPT";
