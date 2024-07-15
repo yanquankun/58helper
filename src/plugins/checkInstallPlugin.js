@@ -1,4 +1,5 @@
-const vscode = require("vscode");
+import * as vscode from "vscode";
+
 let isInsall58Helper = false;
 
 module.exports = exports = async function (cb) {

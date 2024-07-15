@@ -2,7 +2,14 @@
   "name": "58-helper",
   "displayName": "58helper",
   "description": "58 vscode 帮助插件",
-  "repository": "https://github.com/yanquankun/58helper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanquankun/58helper"
+  },
+  "bugs": {
+    "type": "git",
+    "url": "https://github.com/yanquankun/58helper/issues"
+  },
   "publisher": "yanquankun",
   "version": "0.0.3",
   "icon": "icon/logo.png",
@@ -13,10 +20,7 @@
     "Other"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:typescript",
-    "onLanguage:javascript"
-  ],
+  "activationEvents": [],
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -94,11 +98,12 @@
     "@types/vscode": "^1.80.1",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
-    "axios": "^0.21.4",
+    "axios": "^0.21.1",
     "eslint": "^8.57.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "dayjs": "^1.11.11"
+    "dayjs": "^1.11.11",
+    "vsce": "^2.15.0"
   }
 }
