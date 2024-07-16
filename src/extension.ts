@@ -37,6 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {
   console.log("58helper插件关闭");
-  weekNewsHook.zbtimerId && clearInterval(weekNewsHook.zbtimerId);
+  weekNewsHook.zbtimerId &&
+    clearInterval(weekNewsHook.zbtimerId as NodeJS.Timeout);
   console.log("58helper 周报提醒关闭");
 }
