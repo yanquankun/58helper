@@ -14,7 +14,7 @@ export default defineConfig({
   },
   // 配置构建选项
   build: {
-    outDir: '../dist',
+    outDir: '../out/web',
     emptyOutDir: true,
     rollupOptions: {
       output: {

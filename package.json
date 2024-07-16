@@ -89,8 +89,8 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "compile": "sh compile.sh",
+    "watch": "sh watch.sh",
     "package": "npx vsce package",
     "publish": "npx vsce publish"
   },

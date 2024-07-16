@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getLibraryWebviewContent } from "../views/libraryView";
+import { getWebviewContent } from "../utils/util";
 import { ChatViewProvider } from "../views/gptView";
 const fs = require("fs");
 const path = require("path");
@@ -21,9 +21,7 @@ const registerLibraryCommandAndView = (context: vscode.ExtensionContext) => {
       vscode.ViewColumn.One,
       {
         enableScripts: true,
-        localResourceRoots: [
-          vscode.Uri.file(path.join(context.extensionPath, "dist")),
-        ],
+        localResourceRoots: [vscode.Uri.file(path.join(__dirname, "../web"))],
       }
     );
 
@@ -32,7 +30,7 @@ const registerLibraryCommandAndView = (context: vscode.ExtensionContext) => {
     }
 
     const indexPath = vscode.Uri.file(
-      path.join(context.extensionPath, "dist", "index.html")
+      path.join(__dirname, "../web", "index.html")
     );
     ins.webview.html = await getWebviewContent(ins.webview, indexPath);
     libraryIns = ins;
@@ -46,18 +44,5 @@ const registerLibraryCommandAndView = (context: vscode.ExtensionContext) => {
     );
   });
 };
-
-function getWebviewContent(
-  webview: vscode.Webview,
-  indexPath: vscode.Uri
-): Promise<string> {
-  const html = fs.readFileSync(indexPath.fsPath, "utf8");
-  const baseUri = webview.asWebviewUri(
-    vscode.Uri.file(path.join(indexPath.fsPath, ".."))
-  );
-  return Promise.resolve(
-    html.replace(/<head>/, `<head><base href="${baseUri}/">`)
-  );
-}
 
 export { registerGptView, registerLibraryCommandAndView };
