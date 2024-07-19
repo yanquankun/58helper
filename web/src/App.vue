@@ -11,10 +11,10 @@
     </div>
   </header>
 
+  <!-- vscode内不能使用RouterLink，跳转虽然ok，但会打开浏览器 -->
   <RouterView />
 </template>
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
