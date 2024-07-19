@@ -1,25 +1,31 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <span @click="goHome">gohome</span>
+        <span @click="goAbout">goAbout</span>
       </nav>
     </div>
   </header>
 
   <RouterView />
 </template>
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 
+const router = useRouter()
+const goHome = () => {
+  router.push({ path: '/' })
+}
+const goAbout = () => {
+  router.push({ path: '/about' })
+}
+</script>
 <style scoped>
 header {
   line-height: 1.5;
