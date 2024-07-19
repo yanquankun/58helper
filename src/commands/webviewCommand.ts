@@ -24,13 +24,13 @@ const registerLibraryCommandAndView = (context: vscode.ExtensionContext) => {
         localResourceRoots: [vscode.Uri.file(path.join(__dirname, "../web"))],
       }
     );
-
+    
     if (libraryIns && ins != libraryIns) {
       libraryIns.dispose();
     }
 
     const indexPath = vscode.Uri.file(
-      path.join(__dirname, "../web", "index.html")
+      path.join(__dirname, "../web", "index-prod.html")
     );
     ins.webview.html = await getWebviewContent(ins.webview, indexPath);
     libraryIns = ins;

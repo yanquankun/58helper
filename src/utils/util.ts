@@ -19,6 +19,9 @@ export function getWebviewContent(
     vscode.Uri.file(path.join(indexPath.fsPath, ".."))
   );
   return Promise.resolve(
-    html.replace(/<head>/, `<head><base href="${baseUri}/">`)
+    html
+      .replace(/<head>/, `<head><base href="${baseUri}/">`)
+      // 转换vscode安全协议 支持在vscode内部切换路由
+      .replace(/\$\{webview.cspSource}/g, webview.cspSource)
   );
 }

@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "dev": "cross-env NODE_ENV=dev vite",
+    "build": "cross-env NODE_ENV=prod run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build --emptyOutDir",
     "type-check": "vue-tsc --build --force",
@@ -25,6 +25,7 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "npm-run-all2": "^6.2.0",

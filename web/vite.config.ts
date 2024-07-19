@@ -2,6 +2,9 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+
+const env = process.env.NODE_ENV || 'prod'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +20,7 @@ export default defineConfig({
     outDir: '../out/web',
     emptyOutDir: true,
     rollupOptions: {
+      input: resolve(__dirname, env == 'dev' ? 'index-dev.html' : 'index-prod.html'),
       output: {
         // 自定义资源命名
         assetFileNames: (assetInfo) => {
