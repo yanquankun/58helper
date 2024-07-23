@@ -13,6 +13,15 @@ if ! npm run build; then
 fi
 
 cd ../
+cd docs
+echo "开始构建docs项目"
+
+if ! npm run docs:build; then
+    echo "docs打包构建失败"
+    exit 1
+fi
+
+cd ../
 echo "构建插件out目录"
 if ! tsc -p ./; then
     echo "插件构建失败"

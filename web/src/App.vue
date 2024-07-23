@@ -5,7 +5,7 @@
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <nav>
-        <span @click="goHome">gohome</span>
+        <span style="color: red" @click="goHome">gohome</span>
         <span @click="goAbout">goAbout</span>
       </nav>
     </div>

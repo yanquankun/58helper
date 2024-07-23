@@ -44,5 +44,8 @@ export default defineConfig({
         additionalData: `$injectedColor: orange;`
       }
     }
+  },
+  server: {
+    port: 5173
   }
 })

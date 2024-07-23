@@ -1,0 +1,19 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "description": "一个58内部用于RD查询常用工具的项目",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev .docs --port 5174",
+    "docs:build": "vitepress build .docs",
+    "docs:preview": "vitepress preview .docs --port 5175"
+  },
+  "keywords": [
+    "docs"
+  ],
+  "author": "Mint.Yan",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.3.1"
+  }
+}

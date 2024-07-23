@@ -79,7 +79,12 @@
         "category": "周报提醒"
       },
       {
-        "command": "58-open-library",
+        "command": "58-open-web",
+        "title": "58helper打开web容器",
+        "category": "常用功能"
+      },
+      {
+        "command": "58-open-docs",
         "title": "58helper打开内部基建文档",
         "category": "常用功能"
       }

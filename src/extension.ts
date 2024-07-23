@@ -14,8 +14,11 @@ export function activate(context: vscode.ExtensionContext) {
   // gptview注册
   const gptView = webviewHook.registerGptView(context);
 
-  // 基建库view注册
-  const libraryView = webviewHook.registerLibraryCommandAndView(context);
+  // web容器注册
+  const webView = webviewHook.registerWebCommandAndView(context);
+
+  // docs容器注册
+  const docsView = webviewHook.registerDocsCommandAndView(context);
 
   // 周报关闭提醒注册
   const closeZbNotice = weekNewsHook.closeZbNotice();
@@ -28,7 +31,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     gptView,
-    libraryView,
+    webView,
+    docsView,
     closeZbNotice,
     openZbNotice,
     registerRestart
