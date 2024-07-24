@@ -1,9 +1,8 @@
 ---
 navbar: true
-aside: true
-title: 58
-titleTemplate: Custom Suffix
-description: 123
+aside: false
+titleTemplate: 58文档手册
+description: Author By YanQK
 ---
 
 # Markdown Extension Examples

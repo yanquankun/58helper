@@ -13,9 +13,9 @@ const classes = ref<Record<string, boolean>>({});
                 <div class="title">
                     {{ page.titleTemplate }}
                 </div>
-
-                <div class="content">123</div>
-
+                <div class="content">
+                    <span>该手册专为RD查询公司内部基建、文档等手册地址</span>
+                </div>
                 <div class="title">
                     {{ page.description }}
                 </div>
